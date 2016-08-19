@@ -20,7 +20,7 @@ Metrics/MethodLength:
 
 Style/BlockDelimiters:
   Exclude:
-    - 'spec/*/**'
+    - 'spec/**/**/**'
 
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.
