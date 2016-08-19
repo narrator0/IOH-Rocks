@@ -6,3 +6,5 @@ AllCops:
     - lib/**/*.rake
   Exclude:
     - db/schema.rb
+    - bin/**/*
+    - vendor/**/*
