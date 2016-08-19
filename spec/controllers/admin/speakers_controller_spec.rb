@@ -71,5 +71,12 @@ RSpec.describe Admin::SpeakersController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+    it 'delete a record' do
+      speaker = create(:speaker)
+
+      expect{
+        delete :destroy, id: speaker
+      }.to change(Speaker, :count).by(-1)
+    end
   end
 end

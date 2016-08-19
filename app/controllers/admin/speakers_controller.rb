@@ -31,6 +31,14 @@ class Admin::SpeakersController < ApplicationController
     end
   end
 
+  def destroy
+    speaker = Speaker.find params[:id]
+
+    speaker.destroy
+
+    redirect_to admin_speakers_path
+  end
+
   private
 
   def speaker_params
