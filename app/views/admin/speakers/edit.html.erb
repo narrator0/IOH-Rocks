@@ -1,0 +1,7 @@
+<h1>Update Speaker</h1>
+
+<div class="col-md-6">
+  <%= form_for @speaker, url: admin_speaker_path do |f| %>
+    <%= render partial: 'speaker_form', locals: { f: f } %>
+  <% end %>
+</div>

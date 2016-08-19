@@ -1,3 +1,11 @@
+<h1>All Speakers</h1>
+<%= link_to 'Create New', new_admin_speaker_path, class: 'btn btn-success' %>
 <% @speakers.each do |speaker| %>
-  <h2><%= speaker.name %></h2>
+  <h2><%= link_to speaker.name, edit_admin_speaker_path(speaker) %></h2>
+  <p>
+    <%= link_to 'delete', 
+                admin_speaker_path(speaker), 
+                method: :delete,
+                data: { confirm: '你確定要刪除嗎？' } %>
+  </p>
 <% end %>
