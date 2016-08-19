@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Admin::SpeakersController, type: :controller do
   describe 'GET #index' do
-    it 'respond 200' do
+    it 'response 200' do
       get :index
 
       expect(response).to have_http_status(200)
@@ -10,7 +10,7 @@ RSpec.describe Admin::SpeakersController, type: :controller do
   end
 
   describe 'GET #new' do
-    it 'respond 200' do
+    it 'response 200' do
       get :new
 
       expect(response).to have_http_status(200)
@@ -44,10 +44,30 @@ RSpec.describe Admin::SpeakersController, type: :controller do
   end
 
   describe 'GET #edit' do
-    it 'respond 200'
+    it 'response 200' do
+      speaker = create(:speaker)
+
+      get :edit, id: speaker.id
+
+      expect(response).to have_http_status(200)
+    end
   end
 
   describe 'PATCH #update' do
+    it 'update record' do
+      speaker = create(:speaker)
+      speaker_update = build(:speaker)
+
+      patch :update, id: speaker, speaker: speaker_update.attributes
+
+      # remove attributes that don't need to test
+      speaker = assigns(:speaker)
+      speaker.id = nil
+      speaker.created_at = nil
+      speaker.updated_at = nil
+
+      expect(speaker.attributes).to eq(speaker_update.attributes)
+    end
   end
 
   describe 'DELETE #destroy' do
