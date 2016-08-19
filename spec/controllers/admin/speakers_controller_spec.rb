@@ -20,12 +20,12 @@ RSpec.describe Admin::SpeakersController, type: :controller do
   describe 'POST #create' do
     it 'create new record when post' do
       expect{
-        post :create, speaker: { name: 'test' }
+        post :create, speaker: attributes_for(:speaker)
       }.to change(Speaker, :count).by(1)
     end
 
     it 'redirect to admin_speakers_path when update success' do
-      post :create, speaker: { name: 'test' }
+      post :create, speaker: attributes_for(:speaker)
 
       expect(response).to redirect_to(admin_speakers_path)
     end

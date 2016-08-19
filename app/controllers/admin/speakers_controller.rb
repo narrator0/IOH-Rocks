@@ -8,7 +8,7 @@ class Admin::SpeakersController < ApplicationController
   end
 
   def create
-    @speaker = Speaker.new
+    @speaker = Speaker.new speaker_params
 
     if @speaker.save
       redirect_to admin_speakers_path
